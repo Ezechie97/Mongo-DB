@@ -1,0 +1,15 @@
+use rainforest
+db.createCollection('Video_recordings')
+db.Video_recordings.insert({_id:1,Title:'Les Miserables',Director:'Tom Hooper',Runtime:158})
+db.Video_recordings.update({_id:1},{$set:{Download:[{date:"25/10/2021",time:'12:10:25'},{date:'25/10/2021',time:'19:00:59'},{date:'01/12/2021',time:'07:37:15'}]}})
+db.Video_recordings.find()
+db.Video_recordings.insert({id:2,Title:'Skyfull',Director:'Sam Mendes',RunTime:'137',Download:[{date:'01/02/2022',time:'01:27:12'}]})
+db.Video_recordings.insert({_id:3,Title:'The Tall Men',Director:'Raoul Walsh',RunTime:117})
+db.Video_recordings.find()
+db.Video_recordings.find({Director:"Raoul Walsh"})
+db.Video_recordings.find({RunTime:{$gte:110,$lte:140}})
+db.Video_recordings.find({Director:{$ne:"Raoul Walsh"}})
+db.Video_recordings.deleteOne({Title:'Skyfall'})
+db.Video_recordings.find()
+db.Video_recordings.find({Download.date:{$regex:/2021/}})
+
